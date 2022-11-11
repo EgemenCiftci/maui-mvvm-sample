@@ -5,9 +5,6 @@
     xmlns:views="clr-namespace:MauiMvvm.Views"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate views:MainPage}"
-        Route="MainPage" />
+    <ShellContent Title="Home" ContentTemplate="{DataTemplate views:MainPage}" Route="MainPage" />
 
 </Shell>

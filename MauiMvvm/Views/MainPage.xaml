@@ -3,9 +3,6 @@
              xmlns:viewModels="clr-namespace:MauiMvvm.ViewModels"
              x:Class="MauiMvvm.Views.MainPage" 
              Title="Sample Page">
-    <ContentPage.BindingContext>
-        <viewModels:MainPageViewModel/>
-    </ContentPage.BindingContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

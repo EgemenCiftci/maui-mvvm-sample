@@ -5,8 +5,8 @@ namespace MauiMvvm.ViewModels;
 
 public class MainPageViewModel : ViewModelBase
 {
-    private Item _item;
-    public Item Item
+    private Item? _item;
+    public Item? Item
     {
         get => _item;
         set => SetProperty(ref _item, value);
@@ -16,16 +16,24 @@ public class MainPageViewModel : ViewModelBase
     public ICommand ShowMessageCommand { get; private set; }
 
 
-    public MainPageViewModel()
+    public MainPageViewModel(Item item)
     {
+        Item = item;
+
         IncrementCommand = new Command(() =>
         {
-            Item.Count++;
+            if (Item != null)
+            {
+                Item.Count++;
+            }
         });
 
         ShowMessageCommand = new Command(async () =>
         {
-            await Application.Current.MainPage.DisplayAlert("Count", Item.Count.ToString(), "OK");
+            if (Application.Current?.MainPage != null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Count", Item?.Count.ToString(), "OK");
+            }
         });
     }
 }

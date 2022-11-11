@@ -8,7 +8,7 @@ public abstract class ViewModelBase : INotifyPropertyChanged
     /// <summary>
     /// Multicast event for property change notifications.
     /// </summary>
-    public event PropertyChangedEventHandler PropertyChanged;
+    public event PropertyChangedEventHandler? PropertyChanged;
 
     /// <summary>
     /// Checks if a property already matches the desired value.  Sets the property and
@@ -22,7 +22,7 @@ public abstract class ViewModelBase : INotifyPropertyChanged
     /// support CallerMemberName.</param>
     /// <returns>True if the value was changed, false if the existing value matched the
     /// desired value.</returns>
-    protected virtual bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
+    protected virtual bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string? propertyName = null)
     {
         if (Equals(storage, value))
         {
@@ -41,7 +41,7 @@ public abstract class ViewModelBase : INotifyPropertyChanged
     /// <param name="propertyName">Name of the property used to notify listeners.  This
     /// value is optional and can be provided automatically when invoked from compilers
     /// that support <see cref="CallerMemberNameAttribute"/>.</param>
-    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
